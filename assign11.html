@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assign 11</title>
+  </head>
+  <body>
+    <script>
+      "use strict";
+      // 1.
+      let arr1 = [1, 2, 3, 4, 5];
+      let even_arr = [];
+      let odd_arr = [];
+
+      for (let i = 0; i < arr1.length; i++) {
+        if (i % 2 === 0) {
+          odd_arr.push(arr1[i]);
+        } else {
+          even_arr.push(arr1[i]);
+        }
+      }
+      console.log(odd_arr, even_arr);
+      // sum of numbers in odd places
+      let sum_odd = odd_arr.reduce((total, value) => total + value);
+      console.log(sum_odd);
+      // sum of numbers in even places
+      let sum_even = even_arr.reduce((total, value) => total + value);
+      console.log(sum_even);
+
+      // a) Print the difference between the two sums
+      let diff_sums = sum_odd - sum_even;
+      console.log(diff_sums);
+
+      // b) Print the number of elements in odd places
+      for (let i = 0; i < arr1.length; i++) {
+        if (i % 2 !== 0) {
+          console.log("odd index", i, "value is", arr1[i]);
+        }
+      }
+
+      // c) Print the number of elements in even places
+      for (let i = 0; i < arr1.length; i++) {
+        if (i % 2 === 0) {
+          console.log("even index", i, "value is", arr1[i]);
+        }
+      }
+
+      // d) Print the average of all elements in the array
+      let avg_arr = arr1.reduce((total, value) => total + value);
+      console.log("avg is =", avg_arr / arr1.length);
+
+      // e) Print GCD of Sum of Numbers at Odd Places and Sum of Numbers at Even Places
+      let hcf = "";
+      for (let i = 0; i <= sum_odd && i <= sum_odd; i++) {
+        if (sum_even % i === 0 && sum_odd % i === 0) {
+          hcf = i;
+        }
+      }
+      console.log("GCD-", hcf);
+
+      // 2.
+      let arr2 = [1, 2, 3, 4, 5];
+      let arr21 = [4, 6, 1, 8, 2];
+      if (arr2.includes(4) && arr21.includes(4)) {
+        console.log("include in both arrays");
+      } else if (arr2.includes(4)) {
+        console.log("include in arr2");
+      } else if (arr21.includes(4)) {
+        console.log("include in arr21");
+      }
+
+      // 3.
+      let arr3 = [1, 2, [3, 4, [5]]];
+      let flat_arr = arr3.toString().split(",").map(Number)
+      console.log(flat_arr,'flat arr')
+      // 4.
+      // a.
+      let arr4 = [1, 2, 3, 2, 3, 4, 5];
+      let arr_dupli = [];
+      let arr_unique = [];
+      for (let i = 0; i < arr4.length; i++) {
+        if (arr_unique.includes(arr4[i])) {
+          arr_dupli.push(arr4[i]);
+        } else {
+          arr_unique.push(arr4[i]);
+        }
+      }
+      console.log(arr_dupli, "arr dupli value");
+      console.log(arr_unique, "arr unique value");
+
+      // 5.
+      function thirdLargest(arr, arr_size) {
+        /* There should be at least three elements */
+        if (arr_size < 3) {
+          document.write(" Invalid Input ");
+          return;
+        }
+        let first = arr[0];
+        for (let i = 1; i < arr_size; i++) {
+          if (arr[i] > first) {
+            first = arr[i];
+          }
+        }
+        let second = Number.MIN_VALUE;
+        for (let i = 0; i < arr_size; i++) {
+          if (arr[i] < first && arr[i] > second) {
+            second = arr[i];
+          }
+        }
+        let third = Number.MIN_VALUE;
+        for (let i = 0; i < arr_size; i++) {
+          if (arr[i] > third && arr[i] < second) {
+            third = arr[i];
+          }
+        }
+        document.write("The third Largest " + "element is ", third);
+      }
+
+      let arr = [12, 13, 1, 10, 34, 16];
+      let n = arr.length;
+      thirdLargest(arr, n);
+    </script>
+  </body>
+</html>
